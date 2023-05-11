@@ -3,8 +3,6 @@
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Http\Middleware\MirrorConfigToSubpackages;
-use Filament\Pages;
-use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -103,10 +101,8 @@ return [
 
     'pages' => [
         'namespace' => 'App\\Filament\\Pages',
-        'path' => app_path('Filament/Pages'),
-        'register' => [
-            Pages\Dashboard::class,
-        ],
+        'path'      => app_path('Filament/Pages'),
+        'register'  => [],
     ],
 
     /*
@@ -121,8 +117,8 @@ return [
 
     'resources' => [
         'namespace' => 'App\\Filament\\Resources',
-        'path' => app_path('Filament/Resources'),
-        'register' => [],
+        'path'      => app_path('Filament/Resources'),
+        'register'  => [],
     ],
 
     /*
@@ -137,10 +133,9 @@ return [
 
     'widgets' => [
         'namespace' => 'App\\Filament\\Widgets',
-        'path' => app_path('Filament/Widgets'),
-        'register' => [
-            Widgets\AccountWidget::class,
-            Widgets\FilamentInfoWidget::class,
+        'path'      => app_path('Filament/Widgets'),
+        'register'  => [
+            \App\Filament\Widgets\StatsOverview::class,
         ],
     ],
 
@@ -156,7 +151,7 @@ return [
 
     'livewire' => [
         'namespace' => 'App\\Filament',
-        'path' => app_path('Filament'),
+        'path'      => app_path('Filament'),
     ],
 
     /*
@@ -169,7 +164,7 @@ return [
     |
     */
 
-    'dark_mode' => false,
+    'dark_mode' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -182,7 +177,7 @@ return [
     */
 
     'database_notifications' => [
-        'enabled' => false,
+        'enabled'          => false,
         'polling_interval' => '30s',
     ],
 
@@ -222,35 +217,35 @@ return [
     */
 
     'layout' => [
-        'actions' => [
+        'actions'           => [
             'modal' => [
                 'actions' => [
                     'alignment' => 'left',
                 ],
             ],
         ],
-        'forms' => [
-            'actions' => [
-                'alignment' => 'left',
+        'forms'             => [
+            'actions'            => [
+                'alignment'  => 'left',
                 'are_sticky' => false,
             ],
             'have_inline_labels' => false,
         ],
-        'footer' => [
-            'should_show_logo' => true,
+        'footer'            => [
+            'should_show_logo' => false,
         ],
         'max_content_width' => null,
-        'notifications' => [
+        'notifications'     => [
             'vertical_alignment' => 'top',
-            'alignment' => 'right',
+            'alignment'          => 'right',
         ],
-        'sidebar' => [
+        'sidebar'           => [
             'is_collapsible_on_desktop' => false,
-            'groups' => [
+            'groups'                    => [
                 'are_collapsible' => true,
             ],
-            'width' => null,
-            'collapsed_width' => null,
+            'width'                     => null,
+            'collapsed_width'           => null,
         ],
     ],
 

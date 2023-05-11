@@ -11,20 +11,10 @@ docker run --rm \
     composer install --ignore-platform-reqs
 ```
 
-## Запуск
-
-```shell
-./vendor/bin/sail up -d
-```
-
 ## Настройка .env
 
 ```shell
 cp .env.example .env
-```
-
-```shell
-./vendor/bin/sail artisan key:generate
 ```
 
 ```
@@ -36,4 +26,12 @@ DB_USERNAME=sail
 DB_PASSWORD=password
 ```
 
+## Запуск
 
+```shell
+./vendor/bin/sail up -d
+```
+
+```shell
+./vendor/bin/sail artisan key:generate
+```

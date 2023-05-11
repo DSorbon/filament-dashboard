@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('customer_id')->constrained();
             $table->string('series');
             $table->string('number');
-            $table->date('data_of_issue');
+            $table->date('date_of_issue');
             $table->json('documents');
             $table->timestamps();
         });

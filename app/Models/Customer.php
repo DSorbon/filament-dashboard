@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Customer extends Model
 {
@@ -25,8 +24,19 @@ class Customer extends Model
     {
         return ['unique_id'];
     }
-//    public function setUniqueIdAttribute()
-//    {
-//        return $this->unique_id = Str::uuid();
-//    }
+
+    public function passport()
+    {
+        return $this->hasOne(CustomerPassport::class);
+    }
+
+    public function agreement()
+    {
+        return $this->hasOne(CustomerAgreement::class);
+    }
+
+    public function getDocumentsCountAttribute()
+    {
+        return count($this->documents);
+    }
 }

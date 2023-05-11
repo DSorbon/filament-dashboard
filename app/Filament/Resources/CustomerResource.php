@@ -17,6 +17,8 @@ class CustomerResource extends Resource
 {
     protected static ?string $model = Customer::class;
 
+    protected static ?string $title = 'Абоненты';
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
@@ -24,6 +26,27 @@ class CustomerResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')->required(),
+                Forms\Components\Fieldset::make('Passport')
+                    ->relationship('passport')
+                    ->schema([
+                        Forms\Components\TextInput::make('series')->required(),
+                        Forms\Components\TextInput::make('number')->required(),
+                        Forms\Components\DatePicker::make('date_of_issue')->required(),
+                        Forms\Components\FileUpload::make('documents')
+                            ->multiple()
+                            ->disk('public')
+                            ->directory('documents/passports'),
+                    ]),
+                Forms\Components\Fieldset::make('Agreement')
+                    ->relationship('agreement')
+                    ->schema([
+                        Forms\Components\TextInput::make('number')->required(),
+                        Forms\Components\DatePicker::make('agreement_date')->required(),
+                        Forms\Components\FileUpload::make('documents')
+                            ->multiple()
+                            ->disk('public')
+                            ->directory('documents/agreements'),
+                    ]),
                 Forms\Components\FileUpload::make('documents')
                     ->multiple()
                     ->disk('public')
@@ -37,7 +60,8 @@ class CustomerResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('unique_id'),
-                Tables\Columns\TextColumn::make('documents'),
+                Tables\Columns\TextColumn::make('documents_count'),
+
             ])
             ->filters([
                 Tables\Filters\Filter::make('customers')
