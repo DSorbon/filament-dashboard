@@ -1,6 +1,6 @@
 <h1 align="center">Filament dashboard</h1>
 
-## Установка
+## Начальная установка
 
 ```shell
 docker run --rm \
@@ -14,5 +14,26 @@ docker run --rm \
 ## Запуск
 
 ```shell
-./vendor/bin/sail up
+./vendor/bin/sail up -d
 ```
+
+## Настройка .env
+
+```shell
+cp .env.example .env
+```
+
+```shell
+./vendor/bin/sail artisan key:generate
+```
+
+```
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=filament_dashboard
+DB_USERNAME=sail
+DB_PASSWORD=password
+```
+
+
