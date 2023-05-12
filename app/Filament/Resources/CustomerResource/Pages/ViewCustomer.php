@@ -4,21 +4,17 @@ namespace App\Filament\Resources\CustomerResource\Pages;
 
 use App\Filament\Resources\CustomerResource;
 use Filament\Pages\Actions;
-use Filament\Resources\Pages\EditRecord;
+use Filament\Resources\Pages\ViewRecord;
 
-class EditCustomer extends EditRecord
+class ViewCustomer extends ViewRecord
 {
     protected static string $resource = CustomerResource::class;
 
     protected function getActions(): array
     {
         return [
+            Actions\EditAction::make(),
             Actions\DeleteAction::make(),
         ];
-    }
-
-    protected function getRedirectUrl(): string
-    {
-        return $this->getResource()::getUrl('index');
     }
 }

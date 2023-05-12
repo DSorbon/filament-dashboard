@@ -24,6 +24,8 @@ DB_PORT=3306
 DB_DATABASE=filament_dashboard
 DB_USERNAME=sail
 DB_PASSWORD=password
+
+FILAMENT_PATH=""
 ```
 
 ## Запуск

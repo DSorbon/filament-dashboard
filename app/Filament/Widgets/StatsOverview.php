@@ -12,7 +12,6 @@ class StatsOverview extends BaseWidget
     {
         return [
             Card::make('Число абонентов', Customer::count()),
-            Card::make('Число корпоративные клиенты', Customer::count()),
         ];
     }
 }
