@@ -20,6 +20,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Customer::factory(200)->create();
+//        Customer::factory(200)->create();
+        $this->call([
+            RoleSeeder::class,
+            PermissionSeeder::class,
+        ]);
     }
 }
