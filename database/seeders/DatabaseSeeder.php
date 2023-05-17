@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Customer;
+use App\Models\Post;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,9 +22,15 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 //        Customer::factory(200)->create();
-        $this->call([
-            RoleSeeder::class,
-            PermissionSeeder::class,
-        ]);
+
+        $post = new Post();
+        $post->name = ['ru' => 'Загаловка', 'en' => 'Title'];
+        $post->slug = ['ru' => 'zagalovka', 'en' => 'title'];
+        $post->description = ['ru' => 'Информация', 'en' => 'Description'];
+        $post->save();
+//        $this->call([
+//            RoleSeeder::class,
+//            PermissionSeeder::class,
+//        ]);
     }
 }

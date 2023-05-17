@@ -33,6 +33,11 @@ class CustomerPolicy
         return $user->can('Delete Customer');
     }
 
+    public function deleteAny(User $user): bool
+    {
+        return $user->can('Delete Customer');
+    }
+
     public function restore(User $user, Customer $Customer): bool
     {
         return $user->can('Delete Customer');
