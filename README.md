@@ -1,5 +1,6 @@
 <h1 align="center">Filament dashboard</h1>
 
+#### Репозиторию создал для себя чтобы изучить тонкостей библиотека Filament admin panel. 
 ## Начальная установка
 
 ```shell
