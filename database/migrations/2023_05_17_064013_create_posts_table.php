@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->json('name');
             $table->json('slug');
             $table->json('description');
+            $table->string('thumbnail');
             $table->timestamps();
         });
     }

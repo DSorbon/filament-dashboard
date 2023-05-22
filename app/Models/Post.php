@@ -20,5 +20,6 @@ class Post extends Model
         'name',
         'slug',
         'description',
+        'thumbnail',
     ];
 }

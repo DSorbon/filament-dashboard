@@ -5,7 +5,9 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Customer;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,14 +25,18 @@ class DatabaseSeeder extends Seeder
 
 //        Customer::factory(200)->create();
 
-        $post = new Post();
-        $post->name = ['ru' => 'Загаловка', 'en' => 'Title'];
-        $post->slug = ['ru' => 'zagalovka', 'en' => 'title'];
-        $post->description = ['ru' => 'Информация', 'en' => 'Description'];
-        $post->save();
-//        $this->call([
-//            RoleSeeder::class,
-//            PermissionSeeder::class,
-//        ]);
+        $this->call([
+            RoleSeeder::class,
+            PermissionSeeder::class,
+        ]);
+
+        $user = User::updateOrCreate([
+            'email' => 'test@example.com',
+        ], [
+            'name'     => 'Test User',
+            'password' => bcrypt('password'),
+        ]);
+
+        $user->assignRole('Administrator');
     }
 }

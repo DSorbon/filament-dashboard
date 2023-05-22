@@ -29,7 +29,7 @@ class PostResource extends Resource
                 Forms\Components\TextInput::make('name')->label('Name'),
                 Forms\Components\TextInput::make('slug'),
                 Forms\Components\Textarea::make('description'),
-
+                Forms\Components\FileUpload::make('thumbnail'),
             ]);
     }
 
